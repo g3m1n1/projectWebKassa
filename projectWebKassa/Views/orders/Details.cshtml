@@ -1,0 +1,42 @@
+﻿@model projectWebKassa.DAL.order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.personeelId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personeelId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeveringsDatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeveringsDatum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.orderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

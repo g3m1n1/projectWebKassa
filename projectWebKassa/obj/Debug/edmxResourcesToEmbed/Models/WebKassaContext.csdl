@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="webKassaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="abonnee_en_klantSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="order_regelSet" Relationship="Self.FK_abonne_en_klantorder_regel" FromRole="abonne_en_klantSet" ToRole="order_regelSet" />
+  </EntityType>
+  <EntityType Name="betalingSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="orderSet" Relationship="Self.FK_orderbetaling" FromRole="betalingSet" ToRole="orderSet" />
+  </EntityType>
+  <EntityType Name="categorieSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="productSet" Relationship="Self.FK_categorieproduct" FromRole="categorieSet" ToRole="productSet" />
+  </EntityType>
+  <EntityType Name="filiaal_codeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="personeelSet" Relationship="Self.FK_filiaalCodepersoneel" FromRole="filiaal_codeSet" ToRole="personeelSet" />
+  </EntityType>
+  <EntityType Name="leveringRegelsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productId" Type="Int32" Nullable="false" />
+    <Property Name="status_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="leveringSet" Relationship="Self.FK_leveringRegelslevering" FromRole="leveringRegelsSet" ToRole="leveringSet" />
+    <NavigationProperty Name="statusSet" Relationship="Self.FK_leveringRegelsstatus" FromRole="leveringRegelsSet" ToRole="statusSet" />
+    <NavigationProperty Name="productSet" Relationship="Self.FK_productleveringRegels" FromRole="leveringRegelsSet" ToRole="productSet" />
+  </EntityType>
+  <EntityType Name="leveringSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personeelId" Type="Int32" Nullable="false" />
+    <Property Name="leveringRegelsId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="leveringRegelsSet" Relationship="Self.FK_leveringRegelslevering" FromRole="leveringSet" ToRole="leveringRegelsSet" />
+    <NavigationProperty Name="personeelSet" Relationship="Self.FK_personeellevering" FromRole="leveringSet" ToRole="personeelSet" />
+  </EntityType>
+  <EntityType Name="order_regelSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="orderId" Type="Int32" Nullable="false" />
+    <Property Name="abonne_en_klantId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="abonne_en_klantSet" Relationship="Self.FK_abonne_en_klantorder_regel" FromRole="order_regelSet" ToRole="abonne_en_klantSet" />
+    <NavigationProperty Name="orderSet" Relationship="Self.FK_orderorder_regel" FromRole="order_regelSet" ToRole="orderSet" />
+  </EntityType>
+  <EntityType Name="orderSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personeelId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="betalingSet" Relationship="Self.FK_orderbetaling" FromRole="orderSet" ToRole="betalingSet" />
+    <NavigationProperty Name="order_regelSet" Relationship="Self.FK_orderorder_regel" FromRole="orderSet" ToRole="order_regelSet" />
+    <NavigationProperty Name="personeelSet" Relationship="Self.FK_personeelorder" FromRole="orderSet" ToRole="personeelSet" />
+  </EntityType>
+  <EntityType Name="personeelSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filiaal_codeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="filiaal_codeSet" Relationship="Self.FK_filiaalCodepersoneel" FromRole="personeelSet" ToRole="filiaal_codeSet" />
+    <NavigationProperty Name="leveringSet" Relationship="Self.FK_personeellevering" FromRole="personeelSet" ToRole="leveringSet" />
+    <NavigationProperty Name="orderSet" Relationship="Self.FK_personeelorder" FromRole="personeelSet" ToRole="orderSet" />
+  </EntityType>
+  <EntityType Name="prijsSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="productSet" Relationship="Self.FK_productprijs" FromRole="prijsSet" ToRole="productSet" />
+  </EntityType>
+  <EntityType Name="productSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categorieId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="categorieSet" Relationship="Self.FK_categorieproduct" FromRole="productSet" ToRole="categorieSet" />
+    <NavigationProperty Name="leveringRegelsSet" Relationship="Self.FK_productleveringRegels" FromRole="productSet" ToRole="leveringRegelsSet" />
+    <NavigationProperty Name="prijsSet" Relationship="Self.FK_productprijs" FromRole="productSet" ToRole="prijsSet" />
+  </EntityType>
+  <EntityType Name="statusSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="true_false" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="leveringRegelsSet" Relationship="Self.FK_leveringRegelsstatus" FromRole="statusSet" ToRole="leveringRegelsSet" />
+  </EntityType>
+  <Association Name="FK_abonne_en_klantorder_regel">
+    <End Role="abonne_en_klantSet" Type="webKassaModel.abonnee_en_klantSet" Multiplicity="1" />
+    <End Role="order_regelSet" Type="Self.order_regelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="abonne_en_klantSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="order_regelSet">
+        <PropertyRef Name="abonne_en_klantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderbetaling">
+    <End Role="orderSet" Type="Self.orderSet" Multiplicity="1" />
+    <End Role="betalingSet" Type="Self.betalingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orderSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="betalingSet">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_categorieproduct">
+    <End Role="categorieSet" Type="Self.categorieSet" Multiplicity="1" />
+    <End Role="productSet" Type="Self.productSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorieSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="productSet">
+        <PropertyRef Name="categorieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_filiaalCodepersoneel">
+    <End Role="filiaal_codeSet" Type="Self.filiaal_codeSet" Multiplicity="1" />
+    <End Role="personeelSet" Type="Self.personeelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="filiaal_codeSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="personeelSet">
+        <PropertyRef Name="filiaal_codeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_leveringRegelslevering">
+    <End Role="leveringRegelsSet" Type="Self.leveringRegelsSet" Multiplicity="1" />
+    <End Role="leveringSet" Type="Self.leveringSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="leveringRegelsSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="leveringSet">
+        <PropertyRef Name="leveringRegelsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_leveringRegelsstatus">
+    <End Role="statusSet" Type="Self.statusSet" Multiplicity="1" />
+    <End Role="leveringRegelsSet" Type="Self.leveringRegelsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="statusSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="leveringRegelsSet">
+        <PropertyRef Name="status_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productleveringRegels">
+    <End Role="productSet" Type="Self.productSet" Multiplicity="1" />
+    <End Role="leveringRegelsSet" Type="Self.leveringRegelsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="leveringRegelsSet">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personeellevering">
+    <End Role="personeelSet" Type="Self.personeelSet" Multiplicity="1" />
+    <End Role="leveringSet" Type="Self.leveringSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personeelSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="leveringSet">
+        <PropertyRef Name="personeelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orderorder_regel">
+    <End Role="orderSet" Type="Self.orderSet" Multiplicity="1" />
+    <End Role="order_regelSet" Type="Self.order_regelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orderSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="order_regelSet">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personeelorder">
+    <End Role="personeelSet" Type="Self.personeelSet" Multiplicity="1" />
+    <End Role="orderSet" Type="Self.orderSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personeelSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderSet">
+        <PropertyRef Name="personeelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productprijs">
+    <End Role="productSet" Type="Self.productSet" Multiplicity="1" />
+    <End Role="prijsSet" Type="Self.prijsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productSet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="prijsSet">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="webKassaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="abonne_en_klantSet" EntityType="webKassaModel.abonnee_en_klantSet" />
+    <EntitySet Name="betalingSet" EntityType="Self.betalingSet" />
+    <EntitySet Name="categorieSet" EntityType="Self.categorieSet" />
+    <EntitySet Name="filiaal_codeSet" EntityType="Self.filiaal_codeSet" />
+    <EntitySet Name="leveringRegelsSet" EntityType="Self.leveringRegelsSet" />
+    <EntitySet Name="leveringSet" EntityType="Self.leveringSet" />
+    <EntitySet Name="order_regelSet" EntityType="Self.order_regelSet" />
+    <EntitySet Name="orderSet" EntityType="Self.orderSet" />
+    <EntitySet Name="personeelSet" EntityType="Self.personeelSet" />
+    <EntitySet Name="prijsSet" EntityType="Self.prijsSet" />
+    <EntitySet Name="productSet" EntityType="Self.productSet" />
+    <EntitySet Name="statusSet" EntityType="Self.statusSet" />
+    <AssociationSet Name="FK_abonne_en_klantorder_regel" Association="Self.FK_abonne_en_klantorder_regel">
+      <End Role="abonne_en_klantSet" EntitySet="abonne_en_klantSet" />
+      <End Role="order_regelSet" EntitySet="order_regelSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderbetaling" Association="Self.FK_orderbetaling">
+      <End Role="orderSet" EntitySet="orderSet" />
+      <End Role="betalingSet" EntitySet="betalingSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_categorieproduct" Association="Self.FK_categorieproduct">
+      <End Role="categorieSet" EntitySet="categorieSet" />
+      <End Role="productSet" EntitySet="productSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_filiaalCodepersoneel" Association="Self.FK_filiaalCodepersoneel">
+      <End Role="filiaal_codeSet" EntitySet="filiaal_codeSet" />
+      <End Role="personeelSet" EntitySet="personeelSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_leveringRegelslevering" Association="Self.FK_leveringRegelslevering">
+      <End Role="leveringRegelsSet" EntitySet="leveringRegelsSet" />
+      <End Role="leveringSet" EntitySet="leveringSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_leveringRegelsstatus" Association="Self.FK_leveringRegelsstatus">
+      <End Role="statusSet" EntitySet="statusSet" />
+      <End Role="leveringRegelsSet" EntitySet="leveringRegelsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productleveringRegels" Association="Self.FK_productleveringRegels">
+      <End Role="productSet" EntitySet="productSet" />
+      <End Role="leveringRegelsSet" EntitySet="leveringRegelsSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personeellevering" Association="Self.FK_personeellevering">
+      <End Role="personeelSet" EntitySet="personeelSet" />
+      <End Role="leveringSet" EntitySet="leveringSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orderorder_regel" Association="Self.FK_orderorder_regel">
+      <End Role="orderSet" EntitySet="orderSet" />
+      <End Role="order_regelSet" EntitySet="order_regelSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personeelorder" Association="Self.FK_personeelorder">
+      <End Role="personeelSet" EntitySet="personeelSet" />
+      <End Role="orderSet" EntitySet="orderSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productprijs" Association="Self.FK_productprijs">
+      <End Role="productSet" EntitySet="productSet" />
+      <End Role="prijsSet" EntitySet="prijsSet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

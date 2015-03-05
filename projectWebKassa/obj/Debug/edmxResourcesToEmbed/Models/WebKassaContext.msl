@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webKassaModelStoreContainer" CdmEntityContainer="webKassaEntities">
+    <EntitySetMapping Name="abonne_en_klantSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.abonnee_en_klantSet)">
+        <MappingFragment StoreEntitySet="abonne_en_klantSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="betalingSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.betalingSet)">
+        <MappingFragment StoreEntitySet="betalingSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categorieSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.categorieSet)">
+        <MappingFragment StoreEntitySet="categorieSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="filiaal_codeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.filiaal_codeSet)">
+        <MappingFragment StoreEntitySet="filiaal_codeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="leveringRegelsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.leveringRegelsSet)">
+        <MappingFragment StoreEntitySet="leveringRegelsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="status_Id" ColumnName="status_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="leveringSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.leveringSet)">
+        <MappingFragment StoreEntitySet="leveringSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="personeelId" ColumnName="personeelId" />
+          <ScalarProperty Name="leveringRegelsId" ColumnName="leveringRegelsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_regelSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.order_regelSet)">
+        <MappingFragment StoreEntitySet="order_regelSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="abonne_en_klantId" ColumnName="abonne_en_klantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.orderSet)">
+        <MappingFragment StoreEntitySet="orderSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="personeelId" ColumnName="personeelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personeelSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.personeelSet)">
+        <MappingFragment StoreEntitySet="personeelSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="filiaal_codeId" ColumnName="filiaal_codeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prijsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.prijsSet)">
+        <MappingFragment StoreEntitySet="prijsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.productSet)">
+        <MappingFragment StoreEntitySet="productSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="categorieId" ColumnName="categorieId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statusSet">
+      <EntityTypeMapping TypeName="IsTypeOf(webKassaModel.statusSet)">
+        <MappingFragment StoreEntitySet="statusSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="true_false" ColumnName="true_false" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

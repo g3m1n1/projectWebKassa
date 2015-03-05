@@ -1,0 +1,34 @@
+﻿@model projectWebKassa.DAL.prijs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>prijs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.Naam)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PrijsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

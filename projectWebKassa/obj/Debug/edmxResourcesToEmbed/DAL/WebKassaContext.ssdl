@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebKassaContext.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="WebKassaContextStoreContainer">
+    <EntitySet Name="personeelSet" EntityType="WebKassaContext.Store.personeelSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="leveringSet" EntityType="WebKassaContext.Store.leveringSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="leveringRegelsSet" EntityType="WebKassaContext.Store.leveringRegelsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="statusSet" EntityType="WebKassaContext.Store.statusSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="filiaal_codeSet" EntityType="WebKassaContext.Store.filiaal_codeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="orderSet" EntityType="WebKassaContext.Store.orderSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="betalingSet" EntityType="WebKassaContext.Store.betalingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="order_regelSet" EntityType="WebKassaContext.Store.order_regelSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="abonnee_en_klantSet" EntityType="WebKassaContext.Store.abonnee_en_klantSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="prijsSet" EntityType="WebKassaContext.Store.prijsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="productSet" EntityType="WebKassaContext.Store.productSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="categorieSet" EntityType="WebKassaContext.Store.categorieSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FunctieSet" EntityType="WebKassaContext.Store.FunctieSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BetalingsWijzes" EntityType="WebKassaContext.Store.BetalingsWijzes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Adres" EntityType="WebKassaContext.Store.Adres" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="personeellevering" Association="WebKassaContext.Store.personeellevering">
+      <End Role="personeel" EntitySet="personeelSet" />
+      <End Role="levering" EntitySet="leveringSet" />
+    </AssociationSet>
+    <AssociationSet Name="leveringRegelslevering" Association="WebKassaContext.Store.leveringRegelslevering">
+      <End Role="leveringRegels" EntitySet="leveringRegelsSet" />
+      <End Role="levering" EntitySet="leveringSet" />
+    </AssociationSet>
+    <AssociationSet Name="filiaalCodepersoneel" Association="WebKassaContext.Store.filiaalCodepersoneel">
+      <End Role="filiaalCode" EntitySet="filiaal_codeSet" />
+      <End Role="personeel" EntitySet="personeelSet" />
+    </AssociationSet>
+    <AssociationSet Name="orderbetaling" Association="WebKassaContext.Store.orderbetaling">
+      <End Role="order" EntitySet="orderSet" />
+      <End Role="betaling" EntitySet="betalingSet" />
+    </AssociationSet>
+    <AssociationSet Name="orderorder_regel" Association="WebKassaContext.Store.orderorder_regel">
+      <End Role="order" EntitySet="orderSet" />
+      <End Role="order_regel" EntitySet="order_regelSet" />
+    </AssociationSet>
+    <AssociationSet Name="abonne_en_klantorder_regel" Association="WebKassaContext.Store.abonne_en_klantorder_regel">
+      <End Role="abonne_en_klant" EntitySet="abonnee_en_klantSet" />
+      <End Role="order_regel" EntitySet="order_regelSet" />
+    </AssociationSet>
+    <AssociationSet Name="productprijs" Association="WebKassaContext.Store.productprijs">
+      <End Role="product" EntitySet="productSet" />
+      <End Role="prijs" EntitySet="prijsSet" />
+    </AssociationSet>
+    <AssociationSet Name="categorieproduct" Association="WebKassaContext.Store.categorieproduct">
+      <End Role="categorie" EntitySet="categorieSet" />
+      <End Role="product" EntitySet="productSet" />
+    </AssociationSet>
+    <AssociationSet Name="productleveringRegels" Association="WebKassaContext.Store.productleveringRegels">
+      <End Role="product" EntitySet="productSet" />
+      <End Role="leveringRegels" EntitySet="leveringRegelsSet" />
+    </AssociationSet>
+    <AssociationSet Name="Functiepersoneel" Association="WebKassaContext.Store.Functiepersoneel">
+      <End Role="Functie" EntitySet="FunctieSet" />
+      <End Role="personeel" EntitySet="personeelSet" />
+    </AssociationSet>
+    <AssociationSet Name="statuslevering" Association="WebKassaContext.Store.statuslevering">
+      <End Role="status" EntitySet="statusSet" />
+      <End Role="levering" EntitySet="leveringSet" />
+    </AssociationSet>
+    <AssociationSet Name="BetalingsWijzebetaling" Association="WebKassaContext.Store.BetalingsWijzebetaling">
+      <End Role="BetalingsWijze" EntitySet="BetalingsWijzes" />
+      <End Role="betaling" EntitySet="betalingSet" />
+    </AssociationSet>
+    <AssociationSet Name="AdresFiliaal" Association="WebKassaContext.Store.AdresFiliaal">
+      <End Role="Adres" EntitySet="Adres" />
+      <End Role="Filiaal" EntitySet="filiaal_codeSet" />
+    </AssociationSet>
+    <AssociationSet Name="orderpersoneel" Association="WebKassaContext.Store.orderpersoneel">
+      <End Role="order" EntitySet="orderSet" />
+      <End Role="personeel" EntitySet="personeelSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="personeelSet">
+    <Key>
+      <PropertyRef Name="PersoneelId" />
+    </Key>
+    <Property Name="PersoneelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="filiaal_codeId" Type="int" Nullable="false" />
+    <Property Name="FunctieId" Type="int" Nullable="false" />
+    <Property Name="Voornaam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tussenvoegsel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Achternaam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="leveringSet">
+    <Key>
+      <PropertyRef Name="LeveringId" />
+    </Key>
+    <Property Name="LeveringId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personeelId" Type="int" Nullable="false" />
+    <Property Name="leveringRegelsId" Type="int" Nullable="false" />
+    <Property Name="statusId" Type="int" Nullable="false" />
+    <Property Name="LeveringsCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="leveringRegelsSet">
+    <Key>
+      <PropertyRef Name="LeveringRegelsId" />
+    </Key>
+    <Property Name="LeveringRegelsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="statusSet">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="True" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="False" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="filiaal_codeSet">
+    <Key>
+      <PropertyRef Name="FiliaalCodeId" />
+    </Key>
+    <Property Name="FiliaalCodeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AdresAdresId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="orderSet">
+    <Key>
+      <PropertyRef Name="orderId" />
+    </Key>
+    <Property Name="orderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personeelId" Type="int" Nullable="false" />
+    <Property Name="OrderDatum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LeveringsDatum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="personeel_PersoneelId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="betalingSet">
+    <Key>
+      <PropertyRef Name="BetalingId" />
+    </Key>
+    <Property Name="BetalingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="int" Nullable="false" />
+    <Property Name="BetalingsWijze_betalingsWijzeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="order_regelSet">
+    <Key>
+      <PropertyRef Name="OrderRegelId" />
+    </Key>
+    <Property Name="OrderRegelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderId" Type="int" Nullable="false" />
+    <Property Name="abonne_en_klantId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="abonnee_en_klantSet">
+    <Key>
+      <PropertyRef Name="AbonneeEnKlantId" />
+    </Key>
+    <Property Name="AbonneeEnKlantId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Voornaam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Achternaam" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Postcode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefoon_Nummer" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="prijsSet">
+    <Key>
+      <PropertyRef Name="PrijsId" />
+    </Key>
+    <Property Name="PrijsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" Nullable="false" />
+    <Property Name="Prijs" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productSet">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categorieId" Type="int" Nullable="false" />
+    <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="categorieSet">
+    <Key>
+      <PropertyRef Name="categorieId" />
+    </Key>
+    <Property Name="categorieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naam" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FunctieSet">
+    <Key>
+      <PropertyRef Name="FunctieId" />
+    </Key>
+    <Property Name="FunctieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Naam" Type="nvarchar" Nullable="false" MaxLength="21" />
+    <Property Name="Beginschaal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Eindschaal" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BetalingsWijzes">
+    <Key>
+      <PropertyRef Name="betalingsWijzeId" />
+    </Key>
+    <Property Name="betalingsWijzeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayPal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDeal" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contant" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreditCard" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Adres">
+    <Key>
+      <PropertyRef Name="AdresId" />
+    </Key>
+    <Property Name="AdresId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Straat" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Land" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="personeellevering">
+    <End Role="personeel" Type="WebKassaContext.Store.personeelSet" Multiplicity="1" />
+    <End Role="levering" Type="WebKassaContext.Store.leveringSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personeel">
+        <PropertyRef Name="PersoneelId" />
+      </Principal>
+      <Dependent Role="levering">
+        <PropertyRef Name="personeelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="leveringRegelslevering">
+    <End Role="leveringRegels" Type="WebKassaContext.Store.leveringRegelsSet" Multiplicity="1" />
+    <End Role="levering" Type="WebKassaContext.Store.leveringSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="leveringRegels">
+        <PropertyRef Name="LeveringRegelsId" />
+      </Principal>
+      <Dependent Role="levering">
+        <PropertyRef Name="leveringRegelsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="filiaalCodepersoneel">
+    <End Role="filiaalCode" Type="WebKassaContext.Store.filiaal_codeSet" Multiplicity="1" />
+    <End Role="personeel" Type="WebKassaContext.Store.personeelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="filiaalCode">
+        <PropertyRef Name="FiliaalCodeId" />
+      </Principal>
+      <Dependent Role="personeel">
+        <PropertyRef Name="filiaal_codeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="orderbetaling">
+    <End Role="order" Type="WebKassaContext.Store.orderSet" Multiplicity="1" />
+    <End Role="betaling" Type="WebKassaContext.Store.betalingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="betaling">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="orderorder_regel">
+    <End Role="order" Type="WebKassaContext.Store.orderSet" Multiplicity="1" />
+    <End Role="order_regel" Type="WebKassaContext.Store.order_regelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="order">
+        <PropertyRef Name="orderId" />
+      </Principal>
+      <Dependent Role="order_regel">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="abonne_en_klantorder_regel">
+    <End Role="abonne_en_klant" Type="WebKassaContext.Store.abonnee_en_klantSet" Multiplicity="1" />
+    <End Role="order_regel" Type="WebKassaContext.Store.order_regelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="abonne_en_klant">
+        <PropertyRef Name="AbonneeEnKlantId" />
+      </Principal>
+      <Dependent Role="order_regel">
+        <PropertyRef Name="abonne_en_klantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="productprijs">
+    <End Role="product" Type="WebKassaContext.Store.productSet" Multiplicity="1" />
+    <End Role="prijs" Type="WebKassaContext.Store.prijsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="prijs">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="categorieproduct">
+    <End Role="categorie" Type="WebKassaContext.Store.categorieSet" Multiplicity="1" />
+    <End Role="product" Type="WebKassaContext.Store.productSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorie">
+        <PropertyRef Name="categorieId" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="categorieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="productleveringRegels">
+    <End Role="product" Type="WebKassaContext.Store.productSet" Multiplicity="1" />
+    <End Role="leveringRegels" Type="WebKassaContext.Store.leveringRegelsSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="leveringRegels">
+        <PropertyRef Name="productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Functiepersoneel">
+    <End Role="Functie" Type="WebKassaContext.Store.FunctieSet" Multiplicity="1" />
+    <End Role="personeel" Type="WebKassaContext.Store.personeelSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Functie">
+        <PropertyRef Name="FunctieId" />
+      </Principal>
+      <Dependent Role="personeel">
+        <PropertyRef Name="FunctieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="statuslevering">
+    <End Role="status" Type="WebKassaContext.Store.statusSet" Multiplicity="1" />
+    <End Role="levering" Type="WebKassaContext.Store.leveringSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="status">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="levering">
+        <PropertyRef Name="statusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BetalingsWijzebetaling">
+    <End Role="BetalingsWijze" Type="WebKassaContext.Store.BetalingsWijzes" Multiplicity="1" />
+    <End Role="betaling" Type="WebKassaContext.Store.betalingSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BetalingsWijze">
+        <PropertyRef Name="betalingsWijzeId" />
+      </Principal>
+      <Dependent Role="betaling">
+        <PropertyRef Name="BetalingsWijze_betalingsWijzeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AdresFiliaal">
+    <End Role="Adres" Type="WebKassaContext.Store.Adres" Multiplicity="1" />
+    <End Role="Filiaal" Type="WebKassaContext.Store.filiaal_codeSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adres">
+        <PropertyRef Name="AdresId" />
+      </Principal>
+      <Dependent Role="Filiaal">
+        <PropertyRef Name="AdresAdresId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="orderpersoneel">
+    <End Role="order" Type="WebKassaContext.Store.orderSet" Multiplicity="*" />
+    <End Role="personeel" Type="WebKassaContext.Store.personeelSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="personeel">
+        <PropertyRef Name="PersoneelId" />
+      </Principal>
+      <Dependent Role="order">
+        <PropertyRef Name="personeel_PersoneelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

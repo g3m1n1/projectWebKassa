@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bee69f6010d34c248fc894f022279a5b" Name="Diagram1" ShowGrid="false" SnapToGrid="true" ZoomLevel="95" >
+        <EntityTypeShape EntityType="WebKassaContext.personeel" Width="1.5" PointX="5" PointY="0.625" />
+        <EntityTypeShape EntityType="WebKassaContext.levering" Width="1.5" PointX="7.5" PointY="0.625" />
+        <EntityTypeShape EntityType="WebKassaContext.leveringRegels" Width="1.5" PointX="9.625" PointY="3.75" />
+        <EntityTypeShape EntityType="WebKassaContext.status" Width="1.5" PointX="10.375" PointY="0.5" />
+        <AssociationConnector Association="WebKassaContext.personeellevering" />
+        <AssociationConnector Association="WebKassaContext.leveringRegelslevering" />
+        <EntityTypeShape EntityType="WebKassaContext.Filiaal" Width="1.5" PointX="7.125" PointY="3.75" />
+        <AssociationConnector Association="WebKassaContext.filiaalCodepersoneel" />
+        <EntityTypeShape EntityType="WebKassaContext.order" Width="1.5" PointX="4.875" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebKassaContext.betaling" Width="1.5" PointX="2.875" PointY="3.75" />
+        <AssociationConnector Association="WebKassaContext.orderbetaling" />
+        <EntityTypeShape EntityType="WebKassaContext.order_regel" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="WebKassaContext.orderorder_regel" />
+        <EntityTypeShape EntityType="WebKassaContext.abonnee_en_klant" Width="1.5" PointX="2.5" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="WebKassaContext.abonne_en_klantorder_regel" />
+        <EntityTypeShape EntityType="WebKassaContext.prijs" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebKassaContext.product" Width="1.5" PointX="10.125" PointY="8.875" />
+        <AssociationConnector Association="WebKassaContext.productprijs" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WebKassaContext.categorie" Width="1.5" PointX="11.875" PointY="5.625" />
+        <AssociationConnector Association="WebKassaContext.categorieproduct" />
+        <AssociationConnector Association="WebKassaContext.productleveringRegels" />
+        <EntityTypeShape EntityType="WebKassaContext.Functie" Width="1.5" PointX="2.75" PointY="0.625" />
+        <AssociationConnector Association="WebKassaContext.Functiepersoneel" />
+        <AssociationConnector Association="WebKassaContext.statuslevering" />
+        <EntityTypeShape EntityType="WebKassaContext.BetalingsWijze" Width="1.5" PointX="0.875" PointY="1.25" />
+        <AssociationConnector Association="WebKassaContext.BetalingsWijzebetaling" />
+        <EntityTypeShape EntityType="WebKassaContext.Adres" Width="1.5" PointX="8.125" PointY="6.625" />
+        <AssociationConnector Association="WebKassaContext.AdresFiliaal" />
+        <AssociationConnector Association="WebKassaContext.orderpersoneel" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
