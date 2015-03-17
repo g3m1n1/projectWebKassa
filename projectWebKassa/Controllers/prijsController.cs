@@ -48,17 +48,19 @@ namespace projectWebKassa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PrijsId,productId,Prijs")] prijs prijs)
+        public ActionResult Create([Bind(Include = "PrijsId,productId,Prijs")] prijs prijs1)
         {
+            
+
             if (ModelState.IsValid)
             {
-                db.prijsSet.Add(prijs);
+                db.prijsSet.Add(prijs1);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.productId = new SelectList(db.productSet, "ProductId", "Naam");
-            return View(prijs);
+            return View(prijs1);
         }
 
         // GET: prijs/Edit/5
