@@ -171,6 +171,7 @@
     <Compile Include="Controllers\personeelsController.cs" />
     <Compile Include="Controllers\prijsController.cs" />
     <Compile Include="Controllers\productsController.cs" />
+    <Compile Include="Controllers\productViewManagerController.cs" />
     <Compile Include="DAL\abonnee_en_klant.cs">
       <DependentUpon>WebKassaContext.tt</DependentUpon>
     </Compile>
@@ -357,6 +358,8 @@
     <Content Include="Views\orders\Details.cshtml" />
     <Content Include="Views\orders\Edit.cshtml" />
     <Content Include="Views\orders\Index.cshtml" />
+    <Content Include="Views\productViewManager\Categorie.cshtml" />
+    <Content Include="Views\productViewManager\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
