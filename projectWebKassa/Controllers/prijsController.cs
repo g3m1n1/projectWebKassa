@@ -57,7 +57,7 @@ namespace projectWebKassa.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.productId = new SelectList(db.productSet, "ProductId", "Naam", prijs.productId);
+            ViewBag.productId = new SelectList(db.productSet, "ProductId", "Naam");
             return View(prijs);
         }
 
