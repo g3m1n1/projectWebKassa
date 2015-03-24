@@ -1,0 +1,57 @@
+﻿@model projectWebKassa.Models.ProductmanagmentViewModel 
+@{
+    ViewBag.Title = "productManagment";
+}
+
+<h2>productManagement</h2>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <h4>Catogorie</h4>
+        <p> @Html.DropDownList("Catlijst", "Categorielijst")</p>
+        <div id="categorie">
+            @Html.Partial("_categoriepartial", Model.ProductLijst)
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div id="Producten">
+             @Html.Partial("ProductperCategoriePartiel", Model.ProductenLijst)
+
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+    <div id="Prijzen">
+        @Html.Partial("ProductPrijzenPartial", Model.VerkoopprijzenLijst)
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        document.getElementById("catlijst").focus();
+
+        $('#catlijst').change(function() {
+            var idvalue = $('#catlijst').val();
+
+            var ProductenDiv = $('#Producten');
+
+            var url = @Url.Action("ProductperCadID", "ProductManagment") + '?CadID=' + idvalue;
+
+            $get(url,
+                function (data) {
+                    $productenDiv.replaceWith(data);
+                });
+             
+            var url2 = @Html.Action("categoriePerCadID", "productManagment") + '?cadID' + idvalue;
+            var categorieDiv = $('#categorie');
+
+            $.get(url2, {},
+                function (responsetext, textstatus , XMLHttpRequest)
+                {
+                    $('#Categorie').html(responsetext);
+            });
+        });
+  });
+</script>
+
+
+

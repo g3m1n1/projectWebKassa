@@ -48,17 +48,18 @@ namespace projectWebKassa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PrijsId,productId,Prijs")] prijs prijs)
+        public ActionResult Create([Bind(Include = "PrijsId,productId,Prijs")] prijs prijs1)
         {
+
             if (ModelState.IsValid)
             {
-                db.prijsSet.Add(prijs);
+                db.prijsSet.Add(prijs1);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.productId = new SelectList(db.productSet, "ProductId", "Naam");
-            return View(prijs);
+            return View(prijs1);
         }
 
         // GET: prijs/Edit/5
@@ -82,16 +83,16 @@ namespace projectWebKassa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PrijsId,productId,Prijs")] prijs prijs)
+        public ActionResult Edit([Bind(Include = "PrijsId,productId,Prijs")] prijs prijs1)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(prijs).State = EntityState.Modified;
+                db.Entry(prijs1).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.productId = new SelectList(db.productSet, "ProductId", "Naam", prijs.productId);
-            return View(prijs);
+            ViewBag.productId = new SelectList(db.productSet, "ProductId", "Naam");
+            return View(prijs1);
         }
 
         // GET: prijs/Delete/5

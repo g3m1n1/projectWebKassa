@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\g3mini\Desktop\projectWebKassa V.4 Jordy van Domselaar\projectWebKassa\DAL\WebKassaContext.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\bart\Desktop\projectWebKassa V.4 Quinten Wieling\projectWebKassa\DAL\WebKassaContext.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

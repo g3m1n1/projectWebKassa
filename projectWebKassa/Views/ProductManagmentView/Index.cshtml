@@ -1,0 +1,40 @@
+﻿@model projectWebKassa.Models.ProductViewModels
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <div>
+         <dl class="dl-horizontal">
+             <dt>
+                 @Html.DisplayNameFor(Model => model.ProductID)
+             </dt>
+             <dd>
+                 @Html.DisplayFor(Model => model.ProductID)
+             </dd>
+             <dt>
+                 @Html.DisplayNameFor(model => model.ProductNaam)
+             </dt>
+             <dd>
+                 @Html.DisplayFor(model => model.productNaam)
+             </dd>
+             <dt>
+                 @Html.DisplayNameFor(model => model.ProductInfo)
+             </dt>
+             <dd>
+                 @Html.DisplayFor(model => model.productInfo)
+             </dd>
+         </dl>
+
+
+
+
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID })
+        @Html.ActionLink("Delete", "Delete")
+    </p>
+</div>
+

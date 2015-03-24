@@ -1,0 +1,46 @@
+﻿@model IEnumerable<projectWebKassa.Models.ProductViewModels>
+@{
+    ViewBag.Title = "prijsmanagment";
+}
+
+<h2>prijsmanagment</h2>
+
+<h4> producten</h4>
+
+<p> @Html.DropDownList("Productlijst", "productenlijst")</p>
+<p> @Html.ActionLink("create new", "create")</p>
+
+<div id="Product">
+    @Html.Partial("_prouctpartial", Model.FirstOrDefault())
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //document.getElementyId("Prdlijst").focus();
+        var url = @Url.Action("ProductPrijzen")
+            + '?prdID= ' + '@model.FirstOrDefault().ProductID';
+
+        $.get(url, {},
+            function(ResponseText, textStatus, XMLHttpRequest) {
+                $('#prijzen').html(ResponseText);
+            });
+
+        $('productlijst').change(function() {
+            var prdvalue = $('#prdlijst').val();
+            var url = '@url.Action("ProductPrijzen", "ProductManagment")'
+            + '?prdID=' + prdvalue;
+            $.get(url, {},
+                function (ResponseText, textStatus, XMLHttpRequest){
+                    $('#prijzen').html(ResponseText);
+                });
+            var url = '@Url.Action("ProductPerID", "ProductManagment")'
+                + '?prdID =' + prdvalue;
+            $.get(url, {},
+                function(responeText, textStatus, XMLhttpRequest) {
+                    $('#Product').html(responeText);
+
+                });
+        });
+    });
+</script>
+
