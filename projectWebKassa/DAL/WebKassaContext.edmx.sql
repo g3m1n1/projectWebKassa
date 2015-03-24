@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/05/2015 09:27:24
--- Generated from EDMX file: C:\Users\g3mini\Desktop\projectWebKassa V.4 Jordy van Domselaar\projectWebKassa\DAL\WebKassaContext.edmx
+-- Date Created: 03/10/2015 12:11:32
+-- Generated from EDMX file: C:\Users\bart\Desktop\projectWebKassa V.4 Quinten Wieling\projectWebKassa\DAL\WebKassaContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [webshop];
+USE [Bart's webkassa];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -58,6 +58,9 @@ IF OBJECT_ID(N'[dbo].[FK_AdresFiliaal]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_orderpersoneel]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[orderSet] DROP CONSTRAINT [FK_orderpersoneel];
+GO
+IF OBJECT_ID(N'[dbo].[FK_productorder]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[productSet] DROP CONSTRAINT [FK_productorder];
 GO
 
 -- --------------------------------------------------
@@ -353,6 +356,7 @@ ADD CONSTRAINT [FK_personeellevering]
     REFERENCES [dbo].[personeelSet]
         ([PersoneelId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_personeellevering'
 CREATE INDEX [IX_FK_personeellevering]
@@ -367,6 +371,7 @@ ADD CONSTRAINT [FK_leveringRegelslevering]
     REFERENCES [dbo].[leveringRegelsSet]
         ([LeveringRegelsId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_leveringRegelslevering'
 CREATE INDEX [IX_FK_leveringRegelslevering]
@@ -381,6 +386,7 @@ ADD CONSTRAINT [FK_filiaalCodepersoneel]
     REFERENCES [dbo].[filiaal_codeSet]
         ([FiliaalCodeId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_filiaalCodepersoneel'
 CREATE INDEX [IX_FK_filiaalCodepersoneel]
@@ -395,6 +401,7 @@ ADD CONSTRAINT [FK_orderbetaling]
     REFERENCES [dbo].[orderSet]
         ([orderId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_orderbetaling'
 CREATE INDEX [IX_FK_orderbetaling]
@@ -409,6 +416,7 @@ ADD CONSTRAINT [FK_orderorder_regel]
     REFERENCES [dbo].[orderSet]
         ([orderId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_orderorder_regel'
 CREATE INDEX [IX_FK_orderorder_regel]
@@ -423,6 +431,7 @@ ADD CONSTRAINT [FK_abonne_en_klantorder_regel]
     REFERENCES [dbo].[abonnee_en_klantSet]
         ([AbonneeEnKlantId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_abonne_en_klantorder_regel'
 CREATE INDEX [IX_FK_abonne_en_klantorder_regel]
@@ -437,6 +446,7 @@ ADD CONSTRAINT [FK_productprijs]
     REFERENCES [dbo].[productSet]
         ([ProductId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_productprijs'
 CREATE INDEX [IX_FK_productprijs]
@@ -451,6 +461,7 @@ ADD CONSTRAINT [FK_categorieproduct]
     REFERENCES [dbo].[categorieSet]
         ([categorieId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_categorieproduct'
 CREATE INDEX [IX_FK_categorieproduct]
@@ -465,6 +476,7 @@ ADD CONSTRAINT [FK_productleveringRegels]
     REFERENCES [dbo].[productSet]
         ([ProductId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_productleveringRegels'
 CREATE INDEX [IX_FK_productleveringRegels]
@@ -479,6 +491,7 @@ ADD CONSTRAINT [FK_Functiepersoneel]
     REFERENCES [dbo].[FunctieSet]
         ([FunctieId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_Functiepersoneel'
 CREATE INDEX [IX_FK_Functiepersoneel]
@@ -493,6 +506,7 @@ ADD CONSTRAINT [FK_statuslevering]
     REFERENCES [dbo].[statusSet]
         ([StatusId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_statuslevering'
 CREATE INDEX [IX_FK_statuslevering]
@@ -507,6 +521,7 @@ ADD CONSTRAINT [FK_BetalingsWijzebetaling]
     REFERENCES [dbo].[BetalingsWijzes]
         ([betalingsWijzeId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_BetalingsWijzebetaling'
 CREATE INDEX [IX_FK_BetalingsWijzebetaling]
@@ -521,6 +536,7 @@ ADD CONSTRAINT [FK_AdresFiliaal]
     REFERENCES [dbo].[Adres]
         ([AdresId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_AdresFiliaal'
 CREATE INDEX [IX_FK_AdresFiliaal]
@@ -535,6 +551,7 @@ ADD CONSTRAINT [FK_orderpersoneel]
     REFERENCES [dbo].[personeelSet]
         ([PersoneelId])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_orderpersoneel'
 CREATE INDEX [IX_FK_orderpersoneel]

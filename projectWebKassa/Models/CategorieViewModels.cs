@@ -4,12 +4,9 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-
 namespace projectWebKassa.Models
-
 {
-
-    public class CategorieView
+    public class CategorieViewModels
     {
     }
     /// <summary>

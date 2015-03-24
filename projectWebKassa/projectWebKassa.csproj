@@ -170,8 +170,8 @@
     <Compile Include="Controllers\ordersController.cs" />
     <Compile Include="Controllers\personeelsController.cs" />
     <Compile Include="Controllers\prijsController.cs" />
+    <Compile Include="Controllers\ProductManagmentController.cs" />
     <Compile Include="Controllers\productsController.cs" />
-    <Compile Include="Controllers\productViewManagerController.cs" />
     <Compile Include="DAL\abonnee_en_klant.cs">
       <DependentUpon>WebKassaContext.tt</DependentUpon>
     </Compile>
@@ -236,10 +236,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CategorieView.cs" />
+    <Compile Include="Models\CategorieViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PrijsViewModels.cs" />
+    <Compile Include="Models\ProductmanagmentViewModel.cs" />
     <Compile Include="Models\ProductViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -338,11 +339,6 @@
     <Content Include="Views\categories\Details.cshtml" />
     <Content Include="Views\categories\Edit.cshtml" />
     <Content Include="Views\categories\Index.cshtml" />
-    <Content Include="Views\prijs\Create.cshtml" />
-    <Content Include="Views\prijs\Delete.cshtml" />
-    <Content Include="Views\prijs\Details.cshtml" />
-    <Content Include="Views\prijs\Edit.cshtml" />
-    <Content Include="Views\prijs\Index.cshtml" />
     <Content Include="Views\Adres\Create.cshtml" />
     <Content Include="Views\Adres\Delete.cshtml" />
     <Content Include="Views\Adres\Details.cshtml" />
@@ -358,8 +354,16 @@
     <Content Include="Views\orders\Details.cshtml" />
     <Content Include="Views\orders\Edit.cshtml" />
     <Content Include="Views\orders\Index.cshtml" />
-    <Content Include="Views\productViewManager\Categorie.cshtml" />
-    <Content Include="Views\productViewManager\Index.cshtml" />
+    <Content Include="Views\prijs\Create.cshtml" />
+    <Content Include="Views\prijs\Delete.cshtml" />
+    <Content Include="Views\prijs\Details.cshtml" />
+    <Content Include="Views\prijs\Edit.cshtml" />
+    <Content Include="Views\prijs\Index.cshtml" />
+    <Content Include="Views\ProductManagmentView\productManagment.cshtml" />
+    <Content Include="Views\ProductManagmentView\categorieManagment.cshtml" />
+    <Content Include="Views\ProductManagmentView\prijsmanagment.cshtml" />
+    <Content Include="Views\ProductManagmentView\Index.cshtml" />
+    <Content Include="Views\ProductManagmentView\PrijsManagmentView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

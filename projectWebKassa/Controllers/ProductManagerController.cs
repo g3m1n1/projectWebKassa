@@ -1,34 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using projectWebKassa.DAL;
 
 namespace projectWebKassa.Controllers
 {
-    public class ProductViewManagerController : Controller
+    public class ProductManagerController : Controller
+
     {
-        // GET: productViewManager
+        private WebKassaContextContainer db = new WebKassaContextContainer();
+        // GET: ProductManager
         public ActionResult Index()
         {
-            return View();
+            var productSet = db.categorieSet.Include(p => p.product);
+            return View(productSet.ToList());
         }
 
-        //
-
-        // GET: productViewManager/Details/5
+        // GET: ProductManager/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: productViewManager/Create
+        // GET: ProductManager/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: productViewManager/Create
+        // POST: ProductManager/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -44,13 +49,13 @@ namespace projectWebKassa.Controllers
             }
         }
 
-        // GET: productViewManager/Edit/5
+        // GET: ProductManager/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: productViewManager/Edit/5
+        // POST: ProductManager/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -66,13 +71,13 @@ namespace projectWebKassa.Controllers
             }
         }
 
-        // GET: productViewManager/Delete/5
+        // GET: ProductManager/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: productViewManager/Delete/5
+        // POST: ProductManager/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
