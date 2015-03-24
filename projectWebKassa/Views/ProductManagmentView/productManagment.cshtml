@@ -1,4 +1,4 @@
-﻿@model projectWebKassa.Models.ProductmanagmentViewModel 
+﻿@model projectWebKassa.Models.ProductmanagmentViewModel
 @{
     ViewBag.Title = "productManagment";
 }
@@ -17,7 +17,6 @@
     <div class="col-md-4">
         <div id="Producten">
              @Html.Partial("ProductperCategoriePartiel", Model.ProductenLijst)
-
         </div>
     </div>
     <div class="col-md-4"></div>
@@ -40,7 +39,7 @@
                 function (data) {
                     $productenDiv.replaceWith(data);
                 });
-             
+
             var url2 = @Html.Action("categoriePerCadID", "productManagment") + '?cadID' + idvalue;
             var categorieDiv = $('#categorie');
 
@@ -52,6 +51,3 @@
         });
   });
 </script>
-
-
-

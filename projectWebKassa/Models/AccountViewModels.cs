@@ -18,8 +18,11 @@ namespace projectWebKassa.Models
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
+
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+
         public string ReturnUrl { get; set; }
+
         public bool RememberMe { get; set; }
     }
 
@@ -31,6 +34,7 @@ namespace projectWebKassa.Models
         [Required]
         [Display(Name = "Code")]
         public string Code { get; set; }
+
         public string ReturnUrl { get; set; }
 
         [Display(Name = "Remember this browser?")]
@@ -80,7 +84,6 @@ namespace projectWebKassa.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-
         [Required]
         [StringLength(100)]
         [DataType(DataType.Text)]
@@ -98,8 +101,6 @@ namespace projectWebKassa.Models
         [DataType(DataType.PostalCode)]
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
-
-
 
         [Required]
         [StringLength(30)]
