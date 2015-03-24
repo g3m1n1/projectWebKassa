@@ -27,7 +27,7 @@ namespace projectWebKassa.Models
         public string startDatum { get; set; }
     }
 
-    public class IndexPrijsViewModels
+    public class IndexPrijsViewModel
     {
         [Display(Name = "startDatum")]
         public string startDatum { get; set; }

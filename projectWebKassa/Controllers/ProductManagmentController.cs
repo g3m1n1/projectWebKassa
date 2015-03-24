@@ -7,12 +7,8 @@ namespace projectWebKassa.Controllers
         // GET: ProductManagment
         public ActionResult Index()
         {
-            return View();
+            return View("PrijsIndex");
         }
 
-        public ActionResult PrijsIndex()
-        {
-            return View();
-        }
     }
 }

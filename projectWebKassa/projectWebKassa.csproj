@@ -365,11 +365,11 @@
     <Content Include="Views\prijs\Details.cshtml" />
     <Content Include="Views\prijs\Edit.cshtml" />
     <Content Include="Views\prijs\Index.cshtml" />
-    <Content Include="Views\ProductManagmentView\productManagment.cshtml" />
-    <Content Include="Views\ProductManagmentView\categorieManagment.cshtml" />
-    <Content Include="Views\ProductManagmentView\prijsmanagment.cshtml" />
-    <Content Include="Views\ProductManagmentView\Index.cshtml" />
-    <Content Include="Views\ProductManagmentView\PrijsIndex.cshtml" />
+    <Content Include="Views\ProductManagment\productManagment.cshtml" />
+    <Content Include="Views\ProductManagment\categorieManagment.cshtml" />
+    <Content Include="Views\ProductManagment\prijsmanagment.cshtml" />
+    <Content Include="Views\ProductManagment\Index.cshtml" />
+    <Content Include="Views\ProductManagment\PrijsIndex.cshtml" />
     <Content Include="Scripts\jquery.validate.min.js.map">
       <DependentUpon>jquery.validate.min.js</DependentUpon>
     </Content>
