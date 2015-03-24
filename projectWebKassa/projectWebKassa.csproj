@@ -363,7 +363,7 @@
     <Content Include="Views\ProductManagmentView\categorieManagment.cshtml" />
     <Content Include="Views\ProductManagmentView\prijsmanagment.cshtml" />
     <Content Include="Views\ProductManagmentView\Index.cshtml" />
-    <Content Include="Views\ProductManagmentView\PrijsManagmentView.cshtml" />
+    <Content Include="Views\ProductManagmentView\PrijsIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
