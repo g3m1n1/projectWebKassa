@@ -2,6 +2,7 @@
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(projectWebKassa.Startup))]
+
 namespace projectWebKassa
 {
     public partial class Startup
