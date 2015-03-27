@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/24/2015 13:49:02
--- Generated from EDMX file: C:\Users\g3mini\Desktop\projectWebKassa\projectWebKassa\DAL\WebKassaContext.edmx
+-- Date Created: 03/10/2015 12:11:32
+-- Generated from EDMX file: C:\Users\bart\Desktop\projectWebKassa V.4 Quinten Wieling\projectWebKassa\DAL\WebKassaContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [webshop];
+USE [Bart's webkassa];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -58,6 +58,9 @@ IF OBJECT_ID(N'[dbo].[FK_AdresFiliaal]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_orderpersoneel]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[orderSet] DROP CONSTRAINT [FK_orderpersoneel];
+GO
+IF OBJECT_ID(N'[dbo].[FK_productorder]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[productSet] DROP CONSTRAINT [FK_productorder];
 GO
 
 -- --------------------------------------------------

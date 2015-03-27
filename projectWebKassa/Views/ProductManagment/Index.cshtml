@@ -27,9 +27,33 @@
                  @Html.DisplayFor(model => model.productInfo)
              </dd>
          </dl>
+
+
+
+
     </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID })
         @Html.ActionLink("Delete", "Delete")
     </p>
 </div>
+<h4> Verkoop Prijs</h4>
+<p>@Html.DropDownList("PrijsLijst")</p>
+<p>@Html.ActionLink("Create New", "Create")</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BTW)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+</table>

@@ -24,9 +24,11 @@
  */
 
 (function($) {
+
 $.extend($.fn, {
 	// http://docs.jquery.com/Plugins/Validation/validate
 	validate: function( options ) {
+
 		// if nothing is selected, return nothing; can't chain anyway
 		if ( !this.length ) {
 			if ( options && options.debug && window.console ) {
@@ -48,6 +50,7 @@ $.extend($.fn, {
 		$.data( this[0], "validator", validator );
 
 		if ( validator.settings.onsubmit ) {
+
 			this.validateDelegate( ":submit", "click", function( event ) {
 				if ( validator.settings.submitHandler ) {
 					validator.submitButton = event.target;
@@ -221,6 +224,7 @@ $.validator.format = function( source, params ) {
 };
 
 $.extend($.validator, {
+
 	defaults: {
 		messages: {},
 		groups: {},
@@ -310,6 +314,7 @@ $.extend($.validator, {
 	autoCreateRanges: false,
 
 	prototype: {
+
 		init: function() {
 			this.labelContainer = $(this.settings.errorLabelContainer);
 			this.errorContext = this.labelContainer.length && this.labelContainer || $(this.currentForm);
@@ -554,6 +559,7 @@ $.extend($.validator, {
 			for (var method in rules ) {
 				var rule = { method: method, parameters: rules[method] };
 				try {
+
 					result = $.validator.methods[method].call( this, val, element, rule.parameters );
 
 					// if a method indicates that the field is optional and therefore valid,
@@ -810,6 +816,7 @@ $.extend($.validator, {
 				message: this.defaultMessage( element, "remote" )
 			});
 		}
+
 	},
 
 	classRuleSettings: {
@@ -998,6 +1005,7 @@ $.extend($.validator, {
 	},
 
 	methods: {
+
 		// http://docs.jquery.com/Plugins/Validation/Methods/required
 		required: function( value, element, param ) {
 			// check if dependency is met
@@ -1177,11 +1185,14 @@ $.extend($.validator, {
 			}, param));
 			return "pending";
 		}
+
 	}
+
 });
 
 // deprecated, use $.validator.format instead
 $.format = $.validator.format;
+
 }(jQuery));
 
 // ajax mode: abort

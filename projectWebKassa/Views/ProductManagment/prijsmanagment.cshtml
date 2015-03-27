@@ -1,4 +1,4 @@
-﻿@model IEnumerable<projectWebKassa.Models.ProductViewModels>
+﻿@model IEnumerable<projectWebKassa.Models.PrijsViewModels>
 @{
     ViewBag.Title = "prijsmanagment";
 }
@@ -11,7 +11,7 @@
 <p> @Html.ActionLink("create new", "create")</p>
 
 <div id="Product">
-    @Html.Partial("_prouctpartial", Model.FirstOrDefault())
+    @Html.Partial("_productpartial", Model.FirstOrDefault())
 </div>
 
 <script type="text/javascript">
@@ -43,3 +43,4 @@
         });
     });
 </script>
+

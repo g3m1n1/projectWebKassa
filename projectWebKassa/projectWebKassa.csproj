@@ -240,7 +240,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PrijsViewModels.cs" />
-    <Compile Include="Models\ProductmanagmentViewModel.cs" />
+    <Compile Include="BL\ProductmanagmentViewModel.cs" />
     <Compile Include="Models\ProductViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -272,15 +272,9 @@
       <LastGenOutput>WebKassaContext.cs</LastGenOutput>
       <DependentUpon>WebKassaContext.edmx</DependentUpon>
     </Content>
-    <Content Include="Scripts\bootstrap.min.js.map">
-      <DependentUpon>bootstrap.min.js</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js.map">
-      <DependentUpon>jquery-1.10.2.min.js</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -370,12 +364,6 @@
     <Content Include="Views\ProductManagment\prijsmanagment.cshtml" />
     <Content Include="Views\ProductManagment\Index.cshtml" />
     <Content Include="Views\ProductManagment\PrijsIndex.cshtml" />
-    <Content Include="Scripts\jquery.validate.min.js.map">
-      <DependentUpon>jquery.validate.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\respond.min.js.map">
-      <DependentUpon>respond.min.js</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
