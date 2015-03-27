@@ -15,7 +15,9 @@ namespace projectWebKassa.DAL
     public partial class prijs
     {
         public int PrijsId { get; set; }
+
         public int productId { get; set; }
+
         public string Prijs { get; set; }
     
         public virtual product product { get; set; }

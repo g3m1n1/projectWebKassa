@@ -1,26 +1,46 @@
-﻿@model projectWebKassa.Models.IndexPrijsViewModel
+﻿@model IEnumerable<projectWebKassa.Models.PrijsViewModels>
 @{
-    ViewBag.Title = "PrijsManagmentView";
+    ViewBag.Title = "PrijsIndex";
 }
 
-<h2>PrijsManagmentView</h2>
-
-<h4>Verkoop prijs</h4>
+<h2>PrijsIndex</h2>
 
 
-
-
-<p>@Html.ActionLink("Create new", "create")</p>
+<h4> Verkoop Prijs</h4>
+<p>@Html.DropDownList("PrijsLijst")</p>
+<p>@Html.ActionLink("Create New", "Create")</p>
 
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.StartDatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </th>
 
         <th>
-            BTW
+            @Html.DisplayNameFor(model => model.BTW)
         </th>
-        <th></th>
     </tr>
 
-    
-</table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prijs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BTW)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.verkoopPrijsID})
+                @Html.ActionLink("Delete", "Delete", new object{ id = item.verkoopPrijsID})
+            </td>
+        </tr>
+    }
+    </table>
+
